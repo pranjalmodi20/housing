@@ -1,0 +1,10 @@
+export { default as Hero } from './Hero';
+export { default as SearchBar } from './SearchBar';
+export { default as Categories } from './Categories';
+export { default as FeaturedProperties } from './FeaturedProperties';
+export { default as PopularLocalities } from './PopularLocalities';
+export { default as PropertyCollections } from './PropertyCollections';
+export { default as Services } from './Services';
+export { default as WhyChooseUs } from './WhyChooseUs';
+export { default as Testimonials } from './Testimonials';
+export { default as AppDownload } from './AppDownload';

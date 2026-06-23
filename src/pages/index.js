@@ -1,0 +1,24 @@
+export { default as Home } from './Home';
+export { default as Buy } from './Buy';
+export { default as Rent } from './Rent';
+export { default as Commercial } from './Commercial';
+export { default as Plots } from './Plots';
+export { default as PG } from './PG';
+export { default as SearchResults } from './SearchResults';
+export { default as PropertyDetails } from './PropertyDetails';
+export { default as EMICalculator } from './EMICalculator';
+export { default as RentAgreement } from './RentAgreement';
+export { default as Login } from './Login';
+export { default as Register } from './Register';
+export { default as Profile } from './Profile';
+export { default as About } from './About';
+export { default as Contact } from './Contact';
+export { default as FAQ } from './FAQ';
+export { default as NotFound } from './NotFound';
+export { default as HomeLoan } from './HomeLoan';
+export { default as PropertyValuation } from './PropertyValuation';
+export { default as Builder } from './Builder';
+export { default as City } from './City';
+export { default as Locality } from './Locality';
+export { default as Collections } from './Collections';
+
