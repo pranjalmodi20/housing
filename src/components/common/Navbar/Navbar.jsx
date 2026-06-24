@@ -9,6 +9,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const isTopLandingDark = location.pathname === '/' && !scrolled;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,7 +43,7 @@ const Navbar = () => {
       <nav
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
           scrolled
-            ? 'bg-white/80 dark:bg-slate-900/80 shadow-md backdrop-blur-md py-3'
+            ? 'bg-white/75 dark:bg-slate-900/75 shadow-sm py-3 nav-scrolled'
             : 'bg-transparent py-5'
         }`}
       >
@@ -66,14 +67,16 @@ const Navbar = () => {
                 <Link
                   key={link.name}
                   to={link.href}
-                  className={`font-medium text-sm transition-colors relative group py-2 ${
+                  className={`font-semibold text-sm transition-colors relative group py-2 ${
                     isActive(link.href)
-                      ? 'text-primary-700 dark:text-primary-400'
-                      : 'text-slate-600 hover:text-primary-700 dark:text-slate-300 dark:hover:text-primary-400'
+                      ? `text-primary-900 ${isTopLandingDark ? 'dark:text-primary-400' : 'dark:text-primary-200'}`
+                      : `text-slate-800 hover:text-primary-900 ${isTopLandingDark ? 'dark:text-primary-400 dark:hover:text-primary-300' : 'dark:text-slate-100 dark:hover:text-primary-200'}`
                   }`}
                 >
                   {link.name}
-                  <span className={`absolute bottom-0 left-0 h-0.5 bg-primary-700 dark:bg-primary-400 transition-all duration-300 ${
+                  <span className={`absolute bottom-0 left-0 h-0.5 bg-primary-900 transition-all duration-300 ${
+                    isTopLandingDark ? 'dark:bg-primary-400' : 'dark:bg-primary-200'
+                  } ${
                     isActive(link.href) ? 'w-full' : 'w-0 group-hover:w-full'
                   }`} />
                 </Link>
@@ -92,7 +95,9 @@ const Navbar = () => {
               </button>
 
               {/* Login/Signup Button */}
-              <Link to="/login" className="flex items-center space-x-2 px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-slate-700 dark:text-slate-300 font-medium text-sm transition-all hover:bg-slate-50 dark:hover:bg-slate-800/50">
+              <Link to="/login" className={`flex items-center space-x-2 px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 font-semibold text-sm transition-all hover:bg-slate-50 dark:hover:bg-slate-800/50 ${
+                isTopLandingDark ? 'text-slate-800 dark:text-primary-400' : 'text-slate-800 dark:text-slate-200'
+              }`}>
                 <LogIn className="w-4 h-4" />
                 <span>Login</span>
               </Link>
@@ -141,10 +146,10 @@ const Navbar = () => {
                   <Link
                     key={link.name}
                     to={link.href}
-                    className={`block px-3 py-2.5 rounded-xl text-base font-medium transition-colors ${
+                    className={`block px-3 py-2.5 rounded-xl text-base font-semibold transition-colors ${
                       isActive(link.href)
-                        ? 'text-primary-700 dark:text-primary-400 bg-primary-50 dark:bg-primary-950/20'
-                        : 'text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-primary-700 dark:hover:text-primary-400'
+                        ? `text-primary-800 bg-primary-50 ${isTopLandingDark ? 'dark:text-primary-400 dark:bg-primary-950/20' : 'dark:text-primary-350 dark:bg-primary-950/40'}`
+                        : `text-slate-800 hover:bg-slate-50 hover:text-primary-800 ${isTopLandingDark ? 'dark:text-primary-400 dark:hover:bg-slate-800 dark:hover:text-primary-300' : 'dark:text-slate-100 dark:hover:bg-slate-800 dark:hover:text-primary-300'}`
                     }`}
                   >
                     {link.name}
@@ -152,7 +157,9 @@ const Navbar = () => {
                 ))}
 
                 <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex flex-col space-y-3 px-3">
-                  <Link to="/login" className="flex items-center justify-center space-x-2 px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-medium text-base hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors w-full">
+                  <Link to="/login" className={`flex items-center justify-center space-x-2 px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 font-semibold text-base hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors w-full ${
+                    isTopLandingDark ? 'text-slate-800 dark:text-primary-400' : 'text-slate-800 dark:text-slate-200'
+                  }`}>
                     <LogIn className="w-5 h-5" />
                     <span>Login</span>
                   </Link>

@@ -12,7 +12,7 @@ const CityCard = ({ city }) => {
 
   return (
     <motion.div
-      whileHover={{ y: -5 }}
+      whileHover={{ y: -4, scale: 1.01 }}
       onClick={handleCardClick}
       className="group relative h-48 sm:h-52 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer flex-shrink-0"
     >

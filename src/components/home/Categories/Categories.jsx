@@ -6,19 +6,29 @@ import { categories } from '../../../data/dummyData';
 const iconMap = { Home, Key, Building2, Compass, Users };
 
 const cardColors = [
-  'from-purple-50 to-indigo-50 dark:from-purple-950/30 dark:to-indigo-950/30 border-purple-100 dark:border-purple-800/30 hover:border-purple-300 dark:hover:border-purple-600',
-  'from-blue-50 to-cyan-50 dark:from-blue-950/30 dark:to-cyan-950/30 border-blue-100 dark:border-blue-800/30 hover:border-blue-300 dark:hover:border-blue-600',
-  'from-emerald-50 to-green-50 dark:from-emerald-950/30 dark:to-green-950/30 border-emerald-100 dark:border-emerald-800/30 hover:border-emerald-300 dark:hover:border-emerald-600',
-  'from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30 border-amber-100 dark:border-amber-800/30 hover:border-amber-300 dark:hover:border-amber-600',
-  'from-rose-50 to-pink-50 dark:from-rose-950/30 dark:to-pink-950/30 border-rose-100 dark:border-rose-800/30 hover:border-rose-300 dark:hover:border-rose-600',
+  // Buy Home (Soft Green)
+  'from-emerald-50/80 to-green-50/80 dark:from-emerald-950/20 dark:to-green-950/20 border-emerald-100 dark:border-emerald-800/30 hover:border-emerald-300 dark:hover:border-emerald-600',
+  // Rent Home (Soft Blue)
+  'from-blue-50/80 to-sky-50/80 dark:from-blue-950/20 dark:to-sky-950/20 border-blue-100 dark:border-blue-800/30 hover:border-blue-300 dark:hover:border-blue-600',
+  // Commercial (Soft Mint/Sage Green)
+  'from-teal-50/80 to-emerald-50/30 dark:from-teal-950/20 dark:to-emerald-950/20 border-teal-100 dark:border-teal-800/30 hover:border-teal-300 dark:hover:border-teal-600',
+  // Plots / Land (Soft Brown/Beige)
+  'from-amber-50/80 to-stone-100/50 dark:from-amber-950/15 dark:to-stone-900/25 border-amber-100 dark:border-amber-800/30 hover:border-amber-300 dark:hover:border-amber-600',
+  // PG / Co-Living (Soft Pink)
+  'from-rose-50/80 to-pink-50/80 dark:from-rose-950/20 dark:to-pink-950/20 border-rose-100 dark:border-rose-800/30 hover:border-rose-300 dark:hover:border-rose-600',
 ];
 
 const iconColors = [
-  'bg-purple-100 text-purple-600 dark:bg-purple-900/40 dark:text-purple-400',
-  'bg-blue-100 text-blue-600 dark:bg-blue-900/40 dark:text-blue-400',
-  'bg-emerald-100 text-emerald-600 dark:bg-emerald-900/40 dark:text-emerald-400',
-  'bg-amber-100 text-amber-600 dark:bg-amber-900/40 dark:text-amber-400',
-  'bg-rose-100 text-rose-600 dark:bg-rose-900/40 dark:text-rose-400',
+  // Buy Home (Soft Green)
+  'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300',
+  // Rent Home (Soft Blue)
+  'bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300',
+  // Commercial (Soft Mint/Sage Green)
+  'bg-teal-100 text-teal-700 dark:bg-teal-900/40 dark:text-teal-300',
+  // Plots / Land (Soft Brown/Beige)
+  'bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300',
+  // PG / Co-Living (Soft Pink)
+  'bg-rose-100 text-rose-700 dark:bg-rose-900/40 dark:text-rose-300',
 ];
 
 const Categories = () => {

@@ -18,7 +18,7 @@ const PropertyCard = ({ property }) => {
 
   return (
     <motion.div
-      whileHover={{ y: -6 }}
+      whileHover={{ y: -4, scale: 1.01 }}
       onClick={handleCardClick}
       className="group bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-slate-100 dark:border-slate-700/60 transition-all duration-300 cursor-pointer flex flex-col justify-between"
     >
