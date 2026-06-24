@@ -202,7 +202,7 @@ const Hero = () => {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`flex items-center space-x-1.5 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
+                  className={`flex items-center space-x-1.5 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 ${
                     activeTab === tab.id
                       ? 'bg-white text-primary-700 shadow-lg shadow-primary-500/10'
                       : 'text-slate-500 hover:text-slate-700 hover:bg-white/60'
@@ -295,12 +295,12 @@ const Hero = () => {
 
           {/* Quick Links */}
           <div className="flex flex-wrap items-center justify-center gap-2 mt-5">
-            <span className="text-sm text-slate-400">Popular:</span>
+            <span className="text-sm font-medium text-slate-500">Popular:</span>
             {['Whitefield', 'Bandra', 'Koramangala', 'DLF Phase 5'].map((loc) => (
               <button
                 key={loc}
                 onClick={() => setSearchQuery(loc)}
-                className="px-3 py-1.5 text-xs font-medium rounded-full bg-primary-700/8 text-slate-600 hover:bg-primary-700/15 hover:text-slate-800 border border-primary-700/10 transition-all"
+                className="px-3 py-1.5 text-xs font-medium rounded-full bg-primary-700/8 text-slate-700 hover:bg-primary-700/15 hover:text-slate-800 border border-primary-700/10 transition-all"
               >
                 {loc}
               </button>

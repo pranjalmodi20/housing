@@ -125,6 +125,7 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
     background-color: var(--color-slate-50);
     color: var(--color-slate-900);
     letter-spacing: -0.011em;
@@ -141,6 +142,8 @@
   body {
     background-color: var(--color-slate-50) !important;
     color: var(--color-slate-800) !important;
+    font-weight: 500;
+    line-height: 1.7;
   }
 }
 
