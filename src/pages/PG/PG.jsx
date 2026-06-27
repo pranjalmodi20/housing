@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Search, MapPin, Users, Wifi, Utensils, ShieldCheck, Star, Heart, ChevronDown, ArrowRight } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { Users, Wifi, Utensils, ShieldCheck, Star, Heart, ArrowRight, MapPin } from 'lucide-react';
+import SearchBox from '../../components/common/SearchBox/SearchBox';
 
 const pgListings = [
   { id: 1, title: 'ZoloStay Premium', type: 'Co-living', gender: 'Unisex', price: '₹8,500/mo', locality: 'Koramangala', city: 'Bangalore', occupancy: 'Single', meals: true, wifi: true, rating: 4.6, image: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80' },
@@ -13,10 +13,7 @@ const pgListings = [
 ];
 
 const PG = () => {
-  const navigate = useNavigate();
-  const [query, setQuery] = useState('');
   const [genderFilter, setGenderFilter] = useState('All');
-
   const filtered = genderFilter === 'All' ? pgListings : pgListings.filter((p) => p.gender === genderFilter);
 
   return (
@@ -27,16 +24,12 @@ const PG = () => {
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-8">
             <span className="inline-block px-4 py-1.5 mb-4 text-xs font-semibold text-sky-300 bg-sky-500/15 border border-sky-500/20 rounded-full">15,000+ PG & Co-living Spaces</span>
-            <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4 leading-tight">Find <span className="bg-gradient-to-r from-sky-300 to-primary-300 bg-clip-text text-transparent">PG & Co-living</span></h1>
+            <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-4 leading-tight"><span className="text-white">Find</span> <span className="bg-gradient-to-r from-sky-300 to-primary-300 bg-clip-text text-transparent">PG & Co-living</span></h1>
             <p className="text-base text-sky-200/80 max-w-2xl mx-auto">Verified PGs, hostels, and co-living spaces with meals, WiFi, and security</p>
           </motion.div>
-          <motion.form initial={{ opacity: 0, y: 25 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} onSubmit={(e) => { e.preventDefault(); navigate(`/search?tab=pg&query=${query}`); }} className="flex flex-col sm:flex-row gap-2 bg-white dark:bg-slate-800 rounded-2xl shadow-2xl p-3">
-            <div className="relative flex-1">
-              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
-              <input type="text" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search PG by locality, city, or name..." className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-slate-50 dark:bg-slate-700 text-sm text-slate-800 dark:text-slate-200 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-500" />
-            </div>
-            <button type="submit" className="px-8 py-3.5 bg-gradient-to-r from-primary-700 to-indigo-700 text-white font-semibold text-sm rounded-xl shadow-lg flex items-center justify-center space-x-2"><Search className="w-4 h-4" /><span>Search</span></button>
-          </motion.form>
+          <motion.div initial={{ opacity: 0, y: 25 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="w-full text-slate-800">
+            <SearchBox />
+          </motion.div>
         </div>
       </section>
 
