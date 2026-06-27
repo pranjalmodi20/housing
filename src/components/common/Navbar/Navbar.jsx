@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { useTheme } from '../../../hooks/useTheme';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sun, Moon, Menu, X, PlusCircle, LogIn, Compass } from 'lucide-react';
+import { Menu, X, PlusCircle, LogIn, Compass } from 'lucide-react';
 
 const Navbar = () => {
-  const { theme, toggleTheme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
@@ -85,15 +83,6 @@ const Navbar = () => {
 
             {/* Actions (Desktop) */}
             <div className="hidden md:flex items-center space-x-4">
-              {/* Theme Toggle */}
-              <button
-                onClick={toggleTheme}
-                className="p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-colors shadow-inner"
-                aria-label="Toggle theme"
-              >
-                {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-              </button>
-
               {/* Login/Signup Button */}
               <Link to="/login" className={`flex items-center space-x-2 px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 font-semibold text-sm transition-all hover:bg-slate-50 dark:hover:bg-slate-800/50 ${
                 isTopLandingDark ? 'text-slate-800 dark:text-primary-400' : 'text-slate-800 dark:text-slate-200'
@@ -111,15 +100,6 @@ const Navbar = () => {
 
             {/* Mobile Menu Button */}
             <div className="flex md:hidden items-center space-x-3">
-              {/* Theme Toggle for mobile */}
-              <button
-                onClick={toggleTheme}
-                className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300"
-                aria-label="Toggle theme"
-              >
-                {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-              </button>
-
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
