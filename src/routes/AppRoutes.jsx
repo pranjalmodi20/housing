@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import {
-  Home, Buy, Rent, Commercial, Plots, PG,
+  Home, Buy, Rent, NewLaunch, Commercial, Plots, PG, Projects,
   SearchResults, PropertyDetails,
   EMICalculator, RentAgreement,
   Login, Register, Profile,
@@ -17,9 +17,11 @@ const AppRoutes = () => {
       <Route path="/" element={<Home />} />
       <Route path="/buy" element={<Buy />} />
       <Route path="/rent" element={<Rent />} />
+      <Route path="/new-launch" element={<NewLaunch />} />
       <Route path="/commercial" element={<Commercial />} />
       <Route path="/plots" element={<Plots />} />
       <Route path="/pg" element={<PG />} />
+      <Route path="/projects" element={<Projects />} />
       <Route path="/search" element={<SearchResults />} />
       <Route path="/property/:id" element={<PropertyDetails />} />
       <Route path="/services/emi-calculator" element={<EMICalculator />} />
@@ -42,4 +44,3 @@ const AppRoutes = () => {
 };
 
 export default AppRoutes;
-

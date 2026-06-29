@@ -3,7 +3,7 @@ import { useSearchParams, useNavigate } from 'react-router-dom';
 import { properties } from '../../data/dummyData';
 import PropertyCard from '../../components/common/PropertyCard';
 import FilterSidebar from '../../components/common/FilterSidebar';
-import { Search, MapPin, SlidersHorizontal, ArrowUpDown, Grid, List, Sparkles } from 'lucide-react';
+import { Search, MapPin, SlidersHorizontal, ArrowUpDown, Grid, List, Sparkles, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Mock additional rent, commercial, and plots listings for search pages
@@ -146,16 +146,72 @@ const extraSearchListings = [
     image: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=800&q=80',
     verified: true,
     tab: 'pg'
+  },
+  {
+    id: 501,
+    title: 'DLF The Crest New Phase',
+    price: 31000000,
+    priceLabel: '₹3.10 Cr',
+    bhk: 3,
+    type: 'Apartment',
+    locality: 'Sector 54',
+    city: 'Delhi NCR',
+    area: 2400,
+    badge: 'New Launch',
+    rating: 4.6,
+    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80',
+    verified: true,
+    tab: 'new-launch',
+    bathrooms: 3,
+    furnishing: 'Unfurnished'
+  },
+  {
+    id: 601,
+    title: 'Prestige Lakeside Project',
+    price: 48500000,
+    priceLabel: '₹4.85 Cr onwards',
+    bhk: 4,
+    type: 'Project',
+    locality: 'Whitefield',
+    city: 'Bangalore',
+    area: 4200,
+    badge: 'Project',
+    rating: 4.8,
+    image: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&q=80',
+    verified: true,
+    tab: 'projects',
+    bathrooms: 4,
+    furnishing: 'Semi-Furnished'
   }
 ];
+
+const tabLabels = {
+  buy: 'Buy',
+  rent: 'Rent',
+  'new-launch': 'New Launch',
+  commercial: 'Commercial',
+  plots: 'Plots/Land',
+  pg: 'PG',
+  projects: 'Projects',
+};
+
+const tabIntentLabels = {
+  buy: 'Sale',
+  rent: 'Rent',
+  'new-launch': 'New Launch',
+  commercial: 'Commercial',
+  plots: 'Plots/Land',
+  pg: 'PG',
+  projects: 'Projects',
+};
 
 const SearchResults = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
 
-  const tab = searchParams.get('tab') || 'buy';
+  const tab = searchParams.get('tab') === 'plots-land' ? 'plots' : (searchParams.get('tab') || 'buy');
   const urlCity = searchParams.get('city') || '';
-  const urlLocation = searchParams.get('location') || '';
+  const urlLocation = searchParams.get('location') || searchParams.get('query') || '';
   const urlType = searchParams.get('type') || '';
   const urlBhk = searchParams.get('bhk') || '';
   const urlBudget = searchParams.get('budget') || '';
@@ -171,6 +227,10 @@ const SearchResults = () => {
     ...properties.map(p => ({ ...p, tab: p.type === 'Office' ? 'commercial' : 'buy' })),
     ...extraSearchListings
   ];
+
+  useEffect(() => {
+    setSearchQuery(urlLocation);
+  }, [urlLocation]);
 
   useEffect(() => {
     // Filter logic
@@ -248,11 +308,11 @@ const SearchResults = () => {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
           <div>
             <h1 className="font-display font-extrabold text-2xl sm:text-3xl text-slate-800 dark:text-white">
-              {sortedListings.length} Properties for {tab === 'rent' ? 'Rent' : tab === 'pg' ? 'PG' : 'Sale'}
+              {sortedListings.length} Properties for {tabIntentLabels[tab] || 'Sale'}
               {urlCity && ` in ${urlCity}`}
             </h1>
             <p className="text-xs text-slate-400 mt-1 uppercase tracking-wider font-semibold">
-              Home Verse &gt; Search &gt; {tab}
+              Home Verse &gt; Search &gt; {tabLabels[tab] || tab}
             </p>
           </div>
 
@@ -279,7 +339,7 @@ const SearchResults = () => {
           <div className="flex items-center gap-2">
             <span className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wide">Tab:</span>
             <div className="flex items-center space-x-1.5 bg-slate-50 dark:bg-slate-950 p-1 rounded-xl">
-              {['buy', 'rent', 'commercial', 'plots', 'pg'].map((t) => (
+              {['buy', 'rent', 'new-launch', 'commercial', 'plots', 'pg', 'projects'].map((t) => (
                 <button
                   key={t}
                   onClick={() => {
@@ -293,7 +353,7 @@ const SearchResults = () => {
                       : 'text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
                   }`}
                 >
-                  {t}
+                  {tabLabels[t] || t}
                 </button>
               ))}
             </div>

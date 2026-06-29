@@ -9,7 +9,7 @@ const Navbar = () => {
   const location = useLocation();
 
   // Paths that have dark background headers on top
-  const darkHeaderPaths = ['/buy', '/rent', '/commercial', '/plots', '/pg', '/about', '/faq', '/contact'];
+  const darkHeaderPaths = [];
   const isHeaderDark = darkHeaderPaths.includes(location.pathname) && !scrolled;
 
   useEffect(() => {
@@ -32,9 +32,11 @@ const Navbar = () => {
   const navLinks = [
     { name: 'Buy', href: '/buy' },
     { name: 'Rent', href: '/rent' },
+    { name: 'New Launch', href: '/new-launch' },
     { name: 'Commercial', href: '/commercial' },
     { name: 'Plots', href: '/plots' },
     { name: 'PG', href: '/pg' },
+    { name: 'Projects', href: '/projects' },
   ];
 
   const isActive = (href) => location.pathname === href;
@@ -65,7 +67,7 @@ const Navbar = () => {
             </div>
 
             {/* Desktop Navigation Links */}
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden md:flex items-center gap-4 lg:gap-6">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}

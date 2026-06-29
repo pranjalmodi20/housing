@@ -58,6 +58,56 @@ const extraSearchListings = [
     description: 'Fabulous fully-furnished sea facing 3 BHK penthouse with private terrace located at Bandra West.',
     developer: 'Lodha Group',
     postedOn: '3 days ago'
+  },
+  {
+    id: 501,
+    title: 'DLF The Crest New Phase',
+    price: 31000000,
+    priceLabel: '₹3.10 Cr',
+    bhk: 3,
+    type: 'Apartment',
+    locality: 'Sector 54',
+    city: 'Delhi NCR',
+    area: 2400,
+    badge: 'New Launch',
+    rating: 4.6,
+    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80',
+    images: [
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80'
+    ],
+    verified: true,
+    bathrooms: 3,
+    furnishing: 'Unfurnished',
+    facing: 'South',
+    description: 'A new phase residential launch with premium apartments, landscaped open spaces, clubhouse amenities, and strong road connectivity.',
+    developer: 'DLF Group',
+    postedOn: 'Today'
+  },
+  {
+    id: 601,
+    title: 'Prestige Lakeside Project',
+    price: 48500000,
+    priceLabel: '₹4.85 Cr onwards',
+    bhk: 4,
+    type: 'Project',
+    locality: 'Whitefield',
+    city: 'Bangalore',
+    area: 4200,
+    badge: 'Project',
+    rating: 4.8,
+    image: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&q=80',
+    images: [
+      'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&q=80',
+      'https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=800&q=80'
+    ],
+    verified: true,
+    bathrooms: 4,
+    furnishing: 'Semi-Furnished',
+    facing: 'East',
+    description: 'A project-led villa community with curated amenities, multiple configuration choices, and developer-backed inventory information.',
+    developer: 'Prestige Group',
+    postedOn: 'This week'
   }
 ];
 

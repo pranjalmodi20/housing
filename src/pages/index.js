@@ -1,9 +1,11 @@
 export { default as Home } from './Home';
 export { default as Buy } from './Buy';
 export { default as Rent } from './Rent';
+export { default as NewLaunch } from './NewLaunch';
 export { default as Commercial } from './Commercial';
 export { default as Plots } from './Plots';
 export { default as PG } from './PG';
+export { default as Projects } from './Projects';
 export { default as SearchResults } from './SearchResults';
 export { default as PropertyDetails } from './PropertyDetails';
 export { default as EMICalculator } from './EMICalculator';
@@ -21,4 +23,3 @@ export { default as Builder } from './Builder';
 export { default as City } from './City';
 export { default as Locality } from './Locality';
 export { default as Collections } from './Collections';
-

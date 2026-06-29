@@ -40,6 +40,16 @@ const propertyTypesByTab = {
   projects: ['Flat/Apartment', 'Independent House/Villa', 'Builder Floor', 'Other']
 };
 
+const tabRoutes = {
+  buy: '/buy',
+  rent: '/rent',
+  'new-launch': '/new-launch',
+  commercial: '/commercial',
+  'plots-land': '/plots',
+  pg: '/pg',
+  projects: '/projects',
+};
+
 const budgetOptionsBuy = ['Under 20 Lakhs', '20 - 50 Lakhs', '50 Lakhs - 1 Cr', '1 - 2 Cr', '2 - 5 Cr', '5 Cr+'];
 const budgetOptionsRent = ['Under 5,000/mo', '5,000 - 10,000/mo', '10,000 - 15,000/mo', '15,000 - 25,000/mo', '25,000 - 50,000/mo', '50,000/mo+'];
 
@@ -55,9 +65,11 @@ const SearchBox = () => {
   const getTabFromPath = (path) => {
     if (path.startsWith('/buy')) return 'buy';
     if (path.startsWith('/rent')) return 'rent';
+    if (path.startsWith('/new-launch')) return 'new-launch';
     if (path.startsWith('/commercial')) return 'commercial';
     if (path.startsWith('/plots')) return 'plots-land';
     if (path.startsWith('/pg')) return 'pg';
+    if (path.startsWith('/projects')) return 'projects';
     return 'buy'; // default for landing/home
   };
 
@@ -170,13 +182,13 @@ const SearchBox = () => {
     setTimeout(() => {
       setIsSearching(false);
       const params = new URLSearchParams();
-      params.append('tab', activeTab);
+      params.append('tab', activeTab === 'plots-land' ? 'plots' : activeTab);
       params.append('category', category);
       if (searchQuery && searchQuery !== 'Listening...' && searchQuery !== 'Detecting Location...') {
-        params.append('query', searchQuery);
+        params.append('location', searchQuery);
       }
       if (selectedPropertyTypes.length > 0) {
-        params.append('types', selectedPropertyTypes.join(','));
+        params.append('type', selectedPropertyTypes[0]);
       }
       if (selectedBudget) {
         params.append('budget', selectedBudget);
@@ -205,13 +217,16 @@ const SearchBox = () => {
   return (
     <div className="w-full bg-white rounded-3xl border border-slate-200/80 shadow-2xl p-6 relative text-left">
       {/* Top Tabs Row */}
-      <div className="flex items-center justify-between border-b border-slate-100 pb-4 mb-6 flex-wrap gap-y-4">
-        <div className="flex items-center space-x-6 overflow-x-auto no-scrollbar">
+      <div className="flex items-center border-b border-slate-100 pb-4 mb-6 overflow-x-auto no-scrollbar">
+        <div className="flex items-center gap-4 sm:gap-6 min-w-max">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               type="button"
-              onClick={() => setActiveTab(tab.id)}
+              onClick={() => {
+                setActiveTab(tab.id);
+                navigate(tabRoutes[tab.id]);
+              }}
               className={`relative font-semibold text-sm py-2 px-1 transition-colors whitespace-nowrap cursor-pointer ${
                 activeTab === tab.id
                   ? 'text-slate-900'
@@ -233,20 +248,20 @@ const SearchBox = () => {
               )}
             </button>
           ))}
-        </div>
 
-        {/* Right side Post Property link */}
-        <div className="flex items-center space-x-4 border-l border-slate-200 pl-6">
-          <button 
-            type="button"
-            onClick={() => navigate('/login')} 
-            className="flex items-center space-x-1.5 text-slate-700 hover:text-slate-900 font-semibold text-sm cursor-pointer"
-          >
-            <span>Post Property</span>
-            <span className="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-1.5 py-0.5 rounded border border-emerald-200">
-              FREE
-            </span>
-          </button>
+          {/* Right side Post Property link */}
+          <div className="flex items-center border-l border-slate-200 pl-4 sm:pl-6">
+            <button 
+              type="button"
+              onClick={() => navigate('/login')} 
+              className="flex items-center space-x-1.5 text-slate-700 hover:text-slate-900 font-semibold text-sm cursor-pointer"
+            >
+              <span>Post Property</span>
+              <span className="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-1.5 py-0.5 rounded border border-emerald-200">
+                FREE
+              </span>
+            </button>
+          </div>
         </div>
       </div>
 

@@ -2,6 +2,6 @@ import React from 'react';
 import PortalLandingPage from '../../components/common/PortalLandingPage';
 import { portalPages } from '../../data/portalPages';
 
-const Rent = () => <PortalLandingPage page={portalPages.rent} showSearchBox={false} />;
+const NewLaunch = () => <PortalLandingPage page={portalPages['new-launch']} />;
 
-export default Rent;
+export default NewLaunch;
