@@ -4,7 +4,7 @@ import SearchBox from '../../common/SearchBox/SearchBox';
 
 const Hero = () => {
   return (
-    <section className="relative min-h-[92vh] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-0 sm:min-h-[92vh] flex items-center justify-center overflow-hidden py-24 sm:py-0">
       {/* Background — 99acres-inspired light cream with architectural silhouettes */}
       <div className="absolute inset-0 bg-[#F5F4F1] overflow-hidden">
         {/* Soft layered gradient base */}
@@ -112,7 +112,7 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center w-full">
+      <div className="relative z-10 max-w-5xl mx-auto px-3 sm:px-6 lg:px-8 text-center w-full">
         {/* Hero Text */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -122,13 +122,13 @@ const Hero = () => {
           <span className="inline-block px-4 py-1.5 mb-6 text-sm font-semibold text-primary-800 bg-primary-500/10 border border-primary-500/15 rounded-full">
             India's #1 Premium Property Portal
           </span>
-          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-6 leading-[1.15] tracking-[-0.02em] max-w-3xl mx-auto">
+          <h1 className="font-display text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-6 leading-[1.15] tracking-[-0.02em] max-w-3xl mx-auto">
             Discover Your{' '}
             <span className="bg-gradient-to-r from-primary-700 to-indigo-600 bg-clip-text text-transparent">
               Dream Home
             </span>
           </h1>
-          <p className="text-lg font-medium text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed">
+          <p className="text-base sm:text-lg font-medium text-slate-600 max-w-2xl mx-auto mb-8 sm:mb-10 leading-relaxed">
             Explore 100,000+ verified properties across 500+ cities. Buy, rent, or invest with confidence.
           </p>
         </motion.div>
@@ -138,7 +138,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2, ease: 'easeOut' }}
-          className="w-full max-w-3xl mx-auto"
+          className="w-full max-w-3xl mx-auto px-0.5 sm:px-0"
         >
           <SearchBox />
         </motion.div>

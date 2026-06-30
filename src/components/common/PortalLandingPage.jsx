@@ -30,7 +30,7 @@ const PortalLandingPage = ({ page, showSearchBox = true }) => {
 
   return (
     <div className="bg-slate-50 dark:bg-slate-950 transition-colors">
-      <section className="relative pt-28 pb-12 sm:pt-32 sm:pb-16 overflow-hidden">
+      <section className="relative pt-20 pb-10 sm:pt-32 sm:pb-16 overflow-hidden">
         <div className="absolute inset-0 bg-[#F5F4F1] dark:bg-slate-950" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#FAFAF8] via-[#FAFAF8]/95 to-transparent dark:from-slate-950 dark:via-slate-950/95 dark:to-transparent" />
         <img
@@ -40,21 +40,21 @@ const PortalLandingPage = ({ page, showSearchBox = true }) => {
         />
         <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-slate-50 dark:from-slate-950 to-transparent z-10" />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-20">
+        <div className="relative max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 z-20">
           <div className="grid lg:grid-cols-[1fr_0.72fr] gap-10 items-center">
             <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }}>
               <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary-700/10 border border-primary-700/15 text-primary-800 dark:text-primary-300 text-xs font-bold uppercase tracking-wide">
                 <BadgeCheck className="w-3.5 h-3.5" />
                 {page.eyebrow}
               </span>
-              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white mt-5 leading-tight max-w-4xl">
+              <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white mt-5 leading-tight max-w-4xl">
                 {page.title}
               </h1>
-              <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 mt-5 max-w-2xl leading-relaxed">
+              <p className="text-sm sm:text-base lg:text-lg text-slate-600 dark:text-slate-300 mt-4 sm:mt-5 max-w-2xl leading-relaxed">
                 {page.description}
               </p>
 
-              <div className="mt-7 flex flex-wrap items-center gap-3">
+              <div className="mt-5 sm:mt-7 flex flex-wrap items-center gap-2 sm:gap-3">
                 <div className="flex items-center gap-2 bg-white/85 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl px-4 py-3 shadow-sm">
                   <MapPin className="w-4 h-4 text-primary-700" />
                   <select
@@ -97,7 +97,7 @@ const PortalLandingPage = ({ page, showSearchBox = true }) => {
 
       <section className="relative -mt-4 pb-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl shadow-sm p-4 sm:p-5">
+          <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl shadow-sm p-3 sm:p-5">
             <div className="flex flex-wrap items-center gap-2.5">
               <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400 mr-1">
                 <SlidersHorizontal className="w-4 h-4" />

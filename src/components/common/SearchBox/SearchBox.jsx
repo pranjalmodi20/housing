@@ -215,10 +215,10 @@ const SearchBox = () => {
   const showStatusFilter = activeTab !== 'pg';
 
   return (
-    <div className="w-full bg-white rounded-3xl border border-slate-200/80 shadow-2xl p-6 relative text-left">
+    <div className="w-full bg-white rounded-3xl border border-slate-200/80 shadow-2xl p-4 sm:p-6 relative text-left overflow-hidden">
       {/* Top Tabs Row */}
-      <div className="flex items-center border-b border-slate-100 pb-4 mb-6 overflow-x-auto no-scrollbar">
-        <div className="flex items-center gap-4 sm:gap-6 min-w-max">
+      <div className="flex items-center border-b border-slate-100 pb-3 sm:pb-4 mb-4 sm:mb-6 overflow-x-auto no-scrollbar">
+        <div className="flex items-center gap-2.5 sm:gap-6 min-w-max">
           {tabs.map((tab) => (
             <button
               key={tab.id}
@@ -249,8 +249,8 @@ const SearchBox = () => {
             </button>
           ))}
 
-          {/* Right side Post Property link */}
-          <div className="flex items-center border-l border-slate-200 pl-4 sm:pl-6">
+          {/* Right side Post Property link — hidden on xs screens */}
+          <div className="hidden sm:flex items-center border-l border-slate-200 pl-4 sm:pl-6">
             <button 
               type="button"
               onClick={() => navigate('/login')} 
@@ -267,13 +267,13 @@ const SearchBox = () => {
 
       {/* Search Input Bar Group */}
       <form onSubmit={handleSearchSubmit} className="mb-4">
-        <div className="flex items-center bg-[#F5F4F1] border border-slate-200 rounded-2xl p-2.5 shadow-inner relative">
+        <div className="flex flex-col sm:flex-row sm:items-center bg-[#F5F4F1] border border-slate-200 rounded-2xl p-2 sm:p-2.5 shadow-inner relative gap-2 sm:gap-0">
           {/* Category Dropdown */}
-          <div ref={categoryRef} className="relative">
+          <div ref={categoryRef} className="relative w-full sm:w-auto">
             <button
               type="button"
               onClick={() => setShowCategoryDropdown(!showCategoryDropdown)}
-              className="flex items-center space-x-2 px-4 py-2 bg-transparent text-sm font-semibold text-slate-700 hover:text-slate-900 transition-colors cursor-pointer"
+              className="w-full flex items-center justify-between sm:justify-start space-x-2 px-4 py-2 bg-transparent text-sm font-semibold text-slate-700 hover:text-slate-900 transition-colors cursor-pointer"
             >
               <span>{category}</span>
               {showCategoryDropdown ? (
@@ -310,11 +310,11 @@ const SearchBox = () => {
             </AnimatePresence>
           </div>
 
-          {/* Vertical divider */}
-          <div className="w-[1px] h-6 bg-slate-250 mx-2" />
+          {/* Vertical divider — hidden on mobile */}
+          <div className="hidden sm:block w-[1px] h-6 bg-slate-250 mx-2" />
 
           {/* Search text input + Autocomplete suggestions */}
-          <div ref={searchInputRef} className="flex-1 flex items-center relative">
+          <div ref={searchInputRef} className="w-full sm:w-auto flex-1 flex items-center relative">
             <Search className="absolute left-3 w-4 h-4 text-slate-400" />
             <input
               type="text"
@@ -362,8 +362,8 @@ const SearchBox = () => {
             </AnimatePresence>
           </div>
 
-          {/* Icons on the right */}
-          <div className="flex items-center space-x-3.5 pr-2">
+          {/* Icons + Search Button */}
+          <div className="w-full sm:w-auto flex items-center gap-2 sm:gap-3.5 sm:pr-2">
             <button
               type="button"
               onClick={triggerLocateMe}
@@ -387,7 +387,7 @@ const SearchBox = () => {
             <button
               type="submit"
               disabled={isSearching}
-              className="min-w-[90px] flex items-center justify-center px-6 py-2.5 bg-primary-700 hover:bg-primary-800 text-white font-semibold text-sm rounded-xl shadow-lg transition-transform active:scale-95 cursor-pointer disabled:opacity-60"
+              className="flex-1 sm:flex-none min-w-[90px] flex items-center justify-center px-6 py-2.5 bg-primary-700 hover:bg-primary-800 text-white font-semibold text-sm rounded-xl shadow-lg transition-transform active:scale-95 cursor-pointer disabled:opacity-60"
             >
               {isSearching ? <Loader2 className="w-4 h-4 animate-spin" /> : 'Search'}
             </button>
@@ -396,7 +396,7 @@ const SearchBox = () => {
       </form>
 
       {/* Filter Dropdowns Row */}
-      <div ref={filterRowRef} className="flex items-center gap-2.5 flex-wrap border-t border-slate-100 pt-4">
+      <div ref={filterRowRef} className="flex items-center gap-2 sm:gap-2.5 flex-wrap border-t border-slate-100 pt-3 sm:pt-4">
         
         {/* Property Type Dropdown */}
         <div className="relative">
@@ -678,7 +678,7 @@ const SearchBox = () => {
       </div>
 
       {/* Quick Links */}
-      <div className="flex flex-wrap items-center gap-2 mt-5">
+      <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mt-4 sm:mt-5">
         <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Popular:</span>
         {['Whitefield', 'Bandra', 'Koramangala', 'DLF Phase 5'].map((loc) => (
           <button

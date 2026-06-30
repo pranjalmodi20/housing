@@ -207,7 +207,7 @@ const FeaturedProperties = () => {
 
               {/* Modal Content */}
               <div className="p-6 sm:p-8">
-                <div className="flex items-start justify-between mb-4">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-4">
                   <div>
                     <h2 className="font-display text-2xl font-bold text-slate-900 dark:text-white">
                       {selectedProperty.title}

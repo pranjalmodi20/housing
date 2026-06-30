@@ -160,7 +160,7 @@ const Footer = () => {
                 Subscribe to our newsletter for real estate trends, exclusive listings, and market insights delivered to your inbox.
               </p>
             </div>
-            <form onSubmit={handleSubscribe} className="flex w-full md:w-auto gap-3">
+            <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row w-full md:w-auto gap-3">
               <div className="relative flex-1 md:w-72">
                 <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-slate-500" />
                 <input

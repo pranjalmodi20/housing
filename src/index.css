@@ -474,3 +474,31 @@ button:hover,
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* ── Mobile-only overrides ── */
+@media (max-width: 639px) {
+  /* Prevent horizontal overflow on the entire page */
+  html,
+  body {
+    overflow-x: hidden !important;
+  }
+
+  /* Disable hover-lift on touch devices — avoids tap jank */
+  button:hover,
+  .button:hover,
+  [role="button"]:hover {
+    transform: none !important;
+  }
+
+  /* Tighter section spacing on mobile */
+  section {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  /* Ensure max-w-7xl containers don't add extra side padding */
+  .max-w-7xl {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+}
