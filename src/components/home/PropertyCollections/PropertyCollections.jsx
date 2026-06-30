@@ -1,7 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { collections } from '../../../data/dummyData';
+
+const MotionLink = motion.create(Link);
 
 const PropertyCollections = () => {
   return (
@@ -27,8 +30,9 @@ const PropertyCollections = () => {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {collections.map((col, idx) => (
-            <motion.div
+            <MotionLink
               key={col.id}
+              to={`/collections/${col.id}`}
               initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -55,7 +59,7 @@ const PropertyCollections = () => {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </MotionLink>
           ))}
         </div>
       </div>

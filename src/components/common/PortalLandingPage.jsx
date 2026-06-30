@@ -32,15 +32,15 @@ const PortalLandingPage = ({ page, showSearchBox = true }) => {
     <div className="bg-slate-50 dark:bg-slate-950 transition-colors">
       <section className="relative pt-28 pb-12 sm:pt-32 sm:pb-16 overflow-hidden">
         <div className="absolute inset-0 bg-[#F5F4F1] dark:bg-slate-950" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#FAFAF8] via-[#FAFAF8]/95 to-transparent dark:from-slate-950 dark:via-slate-950/95 dark:to-transparent" />
         <img
           src={page.heroImage}
           alt=""
-          className="absolute inset-y-0 right-0 hidden lg:block w-[46%] h-full object-cover opacity-80"
+          className="absolute inset-y-0 right-0 hidden lg:block w-[46%] h-full object-cover z-10"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#FAFAF8] via-[#FAFAF8]/95 to-[#FAFAF8]/60 dark:from-slate-950 dark:via-slate-950/95 dark:to-slate-950/70" />
-        <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-slate-50 dark:from-slate-950 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-slate-50 dark:from-slate-950 to-transparent z-10" />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-20">
           <div className="grid lg:grid-cols-[1fr_0.72fr] gap-10 items-center">
             <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }}>
               <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary-700/10 border border-primary-700/15 text-primary-800 dark:text-primary-300 text-xs font-bold uppercase tracking-wide">
